@@ -26,7 +26,6 @@ class Infos extends Component {
             return <div>loading...</div>
         } else {
             return (
-                <div>
                     <div className="infos">
                         <h3 className="infos-head">
                             informacje ze świata
@@ -53,6 +52,44 @@ class Infos extends Component {
                             </div>
                             <div className="info-section">
                                 <div className="info-img">
+                                    <img src={items[10].image_url}/>
+                                </div>
+                                <div className="info-header-and-text">
+                                    <div className="info-head">
+                                        {console.log(items)}
+                                        {items[10].title}
+                                    </div>
+                                    <div className="info-text">
+                                        {items[10].text}
+                                    </div>
+                                    <div className='btn'>
+                                        <a href={items[10].news_url} target="_blank" rel="nofollow">
+                                            <button>czytaj więcej</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="info-section">
+                                <div className="info-img">
+                                    <img src={items[13].image_url}/>
+                                </div>
+                                <div className="info-header-and-text">
+                                    <div className="info-head">
+                                        {console.log(items)}
+                                        {items[13].title}
+                                    </div>
+                                    <div className="info-text">
+                                        {items[13].text}
+                                    </div>
+                                    <div className='btn'>
+                                        <a href={items[13].news_url} target="_blank" rel="nofollow">
+                                            <button>czytaj więcej</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="info-section">
+                                <div className="info-img">
                                     <img src={items[27].image_url}/>
                                 </div>
                                 <div className="info-header-and-text">
@@ -71,7 +108,6 @@ class Infos extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
             )
         }
     }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import './App.scss';
 import Header from './header/_header.js'
@@ -9,8 +9,35 @@ import Footer from "./footer/_footer.js";
 import Team from "./team/_team.js";
 
 
-function App() {
-    return (
+class App extends Component {
+    componentDidMount() {
+
+        //pokazanie btn'a strzałki w gore
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+                document.querySelector(".scrollUp").style.display = "block";
+            } else {
+                document.querySelector(".scrollUp").style.display = "none";
+            }
+        }
+
+        //przesuwanie w gore z btn'a strzałki w gore
+        document.querySelector(".scrollUp").addEventListener("click", function (e) {
+            (e).preventDefault();
+            document.querySelector('.app').scrollIntoView({
+                block: "start",
+                inline: "nearest",
+                behavior: "smooth"
+            });
+        });
+    }
+
+    render() {
+        return (
             <div className="app">
                 <Header/>
                 <Marquee/>
@@ -18,8 +45,11 @@ function App() {
                 <Infos/>
                 <Team/>
                 <Footer/>
+                <div className="scrollUp">
+                    <i className="fas fa-angle-up"></i>
+                </div>
             </div>
-    );
+        );
+    }
 }
-
 export default App;
